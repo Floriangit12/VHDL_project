@@ -38,7 +38,7 @@ generic(
     divider_freq : integer range 128 to 32716 :=200
 );
  Port ( 
-    
+    clk_in : in std_logic;
     Capteur_1 : in std_logic;
     Capteur_2 : in std_logic;
     
@@ -50,13 +50,27 @@ generic(
 end Moteur;
 
 architecture Behavioral of Moteur is
-signal sens_moteur : std_logic;
-signal s_vitesse : integer;
+signal sens_moteur : std_logic:='1';
+signal detection_sens : std_logic:='1';
+signal s_vitesse : integer:=0;
+signal pulse_counter_cap : integer:=0;
+signal pulse_counter : integer:=0;
 begin
 divider <= divider_freq;
     process(clk_in)
     begin
+    detection_sens = Capteur_1 xor Capteur_2;
         if(rising_edge(Capteur_1) then 
-              sens_moteur 
+              pulse_counter_cap=pulse_counter_cap +1;
+
+              sens <== detection_sens;
+        end if;
+        if(rising_edge(clk_in) then            
+          if(pulse_counter_cap=10) then
+              s_vitesse= 2*pi*R*pulse_counter_cap*freq/(pulse_counter);
+          elsif(pulse_counter_cap>10)
+            pulse_counter= 0;
+            pulse_counter_cap=0;
+          end if;
         end if;
 end Behavioral;
