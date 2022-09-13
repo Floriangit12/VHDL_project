@@ -1,0 +1,655 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xD88E19D8033CE642",
+      "device": "xc7z020clg400-1",
+      "gen_directory": "../../../../project_robot.gen/sources_1/bd/TEST_MOTEUR",
+      "name": "TEST_MOTEUR",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2020.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "B_Moteur": {
+        "Mot_D": {
+          "util_vector_logic_0": "",
+          "Moteur_D": ""
+        },
+        "Mot_G": {
+          "Moteur_G": ""
+        }
+      },
+      "Sensor_G": "",
+      "Sensor_D": "",
+      "util_vector_logic_0": "",
+      "util_vector_logic_1": "",
+      "system_ila_0": ""
+    },
+    "ports": {
+      "Mot_PWM_D": {
+        "direction": "O"
+      },
+      "Mot_Dir_D": {
+        "direction": "O",
+        "left": "0",
+        "right": "0",
+        "parameters": {
+          "PortType": {
+            "value": "undef",
+            "value_src": "ip_prop"
+          },
+          "PortType.PROP_SRC": {
+            "value": "false",
+            "value_src": "ip_prop"
+          }
+        }
+      },
+      "H_125": {
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "TEST_MOTEUR_sys_clk_pin",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "250000000",
+            "value_src": "user_prop"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default_prop"
+          }
+        }
+      },
+      "Mot_Dir_G": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
+      },
+      "Mot_PWM_G": {
+        "direction": "O"
+      },
+      "Cod_G_A": {
+        "direction": "I",
+        "left": "0",
+        "right": "0",
+        "parameters": {
+          "PortType": {
+            "value": "undef",
+            "value_src": "ip_prop"
+          },
+          "PortType.PROP_SRC": {
+            "value": "false",
+            "value_src": "ip_prop"
+          }
+        }
+      },
+      "Cod_D_A": {
+        "direction": "I"
+      },
+      "Cod_D_B": {
+        "direction": "I"
+      },
+      "Cod_G_B": {
+        "direction": "I",
+        "left": "0",
+        "right": "0",
+        "parameters": {
+          "PortType": {
+            "value": "undef",
+            "value_src": "ip_prop"
+          },
+          "PortType.PROP_SRC": {
+            "value": "false",
+            "value_src": "ip_prop"
+          }
+        }
+      }
+    },
+    "components": {
+      "B_Moteur": {
+        "ports": {
+          "Mot_Dir_D": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "Mot_PWM_D": {
+            "direction": "O"
+          },
+          "H_125": {
+            "direction": "I"
+          },
+          "Mot_Dir_G": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "Mot_PWM_G": {
+            "direction": "O"
+          },
+          "Vitesse_D": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "Vitesse_G": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          }
+        },
+        "components": {
+          "Mot_D": {
+            "ports": {
+              "Vitesse": {
+                "direction": "I",
+                "left": "11",
+                "right": "0"
+              },
+              "Mot_PWM_D": {
+                "direction": "O"
+              },
+              "H_125": {
+                "direction": "I"
+              },
+              "Mot_Dir_D": {
+                "direction": "O",
+                "left": "0",
+                "right": "0"
+              }
+            },
+            "components": {
+              "util_vector_logic_0": {
+                "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+                "xci_name": "TEST_MOTEUR_util_vector_logic_0_0",
+                "xci_path": "ip\\TEST_MOTEUR_util_vector_logic_0_0\\TEST_MOTEUR_util_vector_logic_0_0.xci",
+                "inst_hier_path": "B_Moteur/Mot_D/util_vector_logic_0",
+                "parameters": {
+                  "C_OPERATION": {
+                    "value": "not"
+                  },
+                  "C_SIZE": {
+                    "value": "1"
+                  }
+                }
+              },
+              "Moteur_D": {
+                "vlnv": "u-ga.fr:user:Moteur:1.0",
+                "xci_name": "TEST_MOTEUR_Moteur_0_0",
+                "xci_path": "ip\\TEST_MOTEUR_Moteur_0_0\\TEST_MOTEUR_Moteur_0_0.xci",
+                "inst_hier_path": "B_Moteur/Mot_D/Moteur_D",
+                "parameters": {
+                  "Dmax_size": {
+                    "value": "12"
+                  },
+                  "Vmax_size": {
+                    "value": "12"
+                  },
+                  "divider_freq": {
+                    "value": "2500"
+                  }
+                }
+              }
+            },
+            "nets": {
+              "Moteur_0_PWM_dir_out": {
+                "ports": [
+                  "Moteur_D/PWM_dir_out",
+                  "util_vector_logic_0/Op1"
+                ]
+              },
+              "xlconstant_0_dout": {
+                "ports": [
+                  "Vitesse",
+                  "Moteur_D/Vitesse"
+                ]
+              },
+              "Moteur_0_PWM_out": {
+                "ports": [
+                  "Moteur_D/PWM_out",
+                  "Mot_PWM_D"
+                ]
+              },
+              "H_125_1": {
+                "ports": [
+                  "H_125",
+                  "Moteur_D/clk_in"
+                ]
+              },
+              "util_vector_logic_0_Res": {
+                "ports": [
+                  "util_vector_logic_0/Res",
+                  "Mot_Dir_D"
+                ]
+              }
+            }
+          },
+          "Mot_G": {
+            "ports": {
+              "Vitesse": {
+                "direction": "I",
+                "left": "11",
+                "right": "0"
+              },
+              "Mot_Dir_G": {
+                "direction": "O"
+              },
+              "Mot_PWM_G": {
+                "direction": "O"
+              },
+              "H_125": {
+                "direction": "I"
+              }
+            },
+            "components": {
+              "Moteur_G": {
+                "vlnv": "u-ga.fr:user:Moteur:1.0",
+                "xci_name": "TEST_MOTEUR_Moteur_0_1",
+                "xci_path": "ip\\TEST_MOTEUR_Moteur_0_1\\TEST_MOTEUR_Moteur_0_1.xci",
+                "inst_hier_path": "B_Moteur/Mot_G/Moteur_G",
+                "parameters": {
+                  "Dmax_size": {
+                    "value": "12"
+                  },
+                  "Vmax_size": {
+                    "value": "12"
+                  },
+                  "divider_freq": {
+                    "value": "2500"
+                  }
+                }
+              }
+            },
+            "nets": {
+              "xlconstant_1_dout": {
+                "ports": [
+                  "Vitesse",
+                  "Moteur_G/Vitesse"
+                ]
+              },
+              "Moteur_1_PWM_dir_out": {
+                "ports": [
+                  "Moteur_G/PWM_dir_out",
+                  "Mot_Dir_G"
+                ]
+              },
+              "Moteur_1_PWM_out": {
+                "ports": [
+                  "Moteur_G/PWM_out",
+                  "Mot_PWM_G"
+                ]
+              },
+              "H_125_1": {
+                "ports": [
+                  "H_125",
+                  "Moteur_G/clk_in"
+                ]
+              }
+            }
+          }
+        },
+        "nets": {
+          "H_125_1": {
+            "ports": [
+              "H_125",
+              "Mot_D/H_125",
+              "Mot_G/H_125"
+            ]
+          },
+          "Moteur_1_PWM_out": {
+            "ports": [
+              "Mot_G/Mot_PWM_G",
+              "Mot_PWM_G"
+            ]
+          },
+          "Moteur_0_PWM_out": {
+            "ports": [
+              "Mot_D/Mot_PWM_D",
+              "Mot_PWM_D"
+            ]
+          },
+          "Moteur_1_PWM_dir_out": {
+            "ports": [
+              "Mot_G/Mot_Dir_G",
+              "Mot_Dir_G"
+            ]
+          },
+          "util_vector_logic_0_Res": {
+            "ports": [
+              "Mot_D/Mot_Dir_D",
+              "Mot_Dir_D"
+            ]
+          },
+          "Vitesse_1": {
+            "ports": [
+              "Vitesse_D",
+              "Mot_D/Vitesse"
+            ]
+          },
+          "Vitesse_3": {
+            "ports": [
+              "Vitesse_G",
+              "Mot_G/Vitesse"
+            ]
+          }
+        }
+      },
+      "Sensor_G": {
+        "vlnv": "xilinx.com:module_ref:Sensor:1.0",
+        "xci_name": "TEST_MOTEUR_Sensor_0_2",
+        "xci_path": "ip\\TEST_MOTEUR_Sensor_0_2\\TEST_MOTEUR_Sensor_0_2.xci",
+        "inst_hier_path": "Sensor_G",
+        "parameters": {
+          "Dmax_size": {
+            "value": "16"
+          },
+          "Vmax_size": {
+            "value": "12"
+          },
+          "freq": {
+            "value": "150000000"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Sensor",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_in": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "250000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.000",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "TEST_MOTEUR_sys_clk_pin",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "Capteur_1": {
+            "direction": "I",
+            "parameters": {
+              "PortType": {
+                "value": "undef",
+                "value_src": "ip_prop"
+              },
+              "PortType.PROP_SRC": {
+                "value": "false",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "Capteur_2": {
+            "direction": "I",
+            "parameters": {
+              "PortType": {
+                "value": "undef",
+                "value_src": "ip_prop"
+              },
+              "PortType.PROP_SRC": {
+                "value": "false",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "Vitesse": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "Distance": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "Update_sensor": {
+            "direction": "O"
+          },
+          "Flag_motor": {
+            "direction": "O"
+          }
+        }
+      },
+      "Sensor_D": {
+        "vlnv": "xilinx.com:module_ref:Sensor:1.0",
+        "xci_name": "TEST_MOTEUR_Sensor_1_0",
+        "xci_path": "ip\\TEST_MOTEUR_Sensor_1_0\\TEST_MOTEUR_Sensor_1_0.xci",
+        "inst_hier_path": "Sensor_D",
+        "parameters": {
+          "Dmax_size": {
+            "value": "16"
+          },
+          "Vmax_size": {
+            "value": "12"
+          },
+          "freq": {
+            "value": "150000000"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Sensor",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_in": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "250000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.000",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "TEST_MOTEUR_sys_clk_pin",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "Capteur_1": {
+            "direction": "I"
+          },
+          "Capteur_2": {
+            "direction": "I"
+          },
+          "Vitesse": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "Distance": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "Update_sensor": {
+            "direction": "O"
+          },
+          "Flag_motor": {
+            "direction": "O"
+          }
+        }
+      },
+      "util_vector_logic_0": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "TEST_MOTEUR_util_vector_logic_0_2",
+        "xci_path": "ip\\TEST_MOTEUR_util_vector_logic_0_2\\TEST_MOTEUR_util_vector_logic_0_2.xci",
+        "inst_hier_path": "util_vector_logic_0",
+        "parameters": {
+          "C_OPERATION": {
+            "value": "not"
+          },
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
+      },
+      "util_vector_logic_1": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "TEST_MOTEUR_util_vector_logic_0_3",
+        "xci_path": "ip\\TEST_MOTEUR_util_vector_logic_0_3\\TEST_MOTEUR_util_vector_logic_0_3.xci",
+        "inst_hier_path": "util_vector_logic_1",
+        "parameters": {
+          "C_OPERATION": {
+            "value": "not"
+          },
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
+      },
+      "system_ila_0": {
+        "vlnv": "xilinx.com:ip:system_ila:1.1",
+        "xci_name": "TEST_MOTEUR_system_ila_0_0",
+        "xci_path": "ip\\TEST_MOTEUR_system_ila_0_0\\TEST_MOTEUR_system_ila_0_0.xci",
+        "inst_hier_path": "system_ila_0",
+        "parameters": {
+          "C_MON_TYPE": {
+            "value": "NATIVE"
+          },
+          "C_NUM_OF_PROBES": {
+            "value": "10"
+          },
+          "C_SLOT_0_INTF_TYPE": {
+            "value": "xilinx.com:display_cmac_usplus:statistics_ports:2.0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "Moteur_0_PWM_out": {
+        "ports": [
+          "B_Moteur/Mot_PWM_D",
+          "Mot_PWM_D"
+        ]
+      },
+      "Moteur_0_PWM_dir_out": {
+        "ports": [
+          "B_Moteur/Mot_Dir_D",
+          "Mot_Dir_D"
+        ]
+      },
+      "H_125_1": {
+        "ports": [
+          "H_125",
+          "B_Moteur/H_125",
+          "Sensor_D/clk_in",
+          "Sensor_G/clk_in",
+          "system_ila_0/clk"
+        ]
+      },
+      "Moteur_1_PWM_dir_out": {
+        "ports": [
+          "B_Moteur/Mot_Dir_G",
+          "Mot_Dir_G"
+        ]
+      },
+      "Moteur_1_PWM_out": {
+        "ports": [
+          "B_Moteur/Mot_PWM_G",
+          "Mot_PWM_G"
+        ]
+      },
+      "Sensor_D_Vitesse": {
+        "ports": [
+          "Sensor_D/Vitesse",
+          "B_Moteur/Vitesse_D"
+        ]
+      },
+      "Sensor_G_Vitesse": {
+        "ports": [
+          "Sensor_G/Vitesse",
+          "B_Moteur/Vitesse_G"
+        ]
+      },
+      "util_vector_logic_0_Res": {
+        "ports": [
+          "util_vector_logic_0/Res",
+          "Sensor_G/Capteur_1"
+        ]
+      },
+      "util_vector_logic_1_Res": {
+        "ports": [
+          "util_vector_logic_1/Res",
+          "Sensor_G/Capteur_2"
+        ]
+      },
+      "Op1_0_1": {
+        "ports": [
+          "Cod_G_A",
+          "util_vector_logic_0/Op1",
+          "system_ila_0/probe7"
+        ]
+      },
+      "Capteur_1_0_1": {
+        "ports": [
+          "Cod_D_A",
+          "Sensor_D/Capteur_1",
+          "system_ila_0/probe5"
+        ]
+      },
+      "Op1_1_1": {
+        "ports": [
+          "Cod_G_B",
+          "util_vector_logic_1/Op1",
+          "system_ila_0/probe8"
+        ]
+      },
+      "Sensor_G_Distance": {
+        "ports": [
+          "Sensor_G/Distance",
+          "system_ila_0/probe0"
+        ]
+      },
+      "Sensor_G_Update_sensor": {
+        "ports": [
+          "Sensor_G/Update_sensor",
+          "system_ila_0/probe2"
+        ]
+      },
+      "Sensor_D_Flag_motor": {
+        "ports": [
+          "Sensor_D/Flag_motor",
+          "system_ila_0/probe3"
+        ]
+      },
+      "Sensor_G_Flag_motor": {
+        "ports": [
+          "Sensor_G/Flag_motor",
+          "system_ila_0/probe4"
+        ]
+      },
+      "Cod_D_B_1": {
+        "ports": [
+          "Cod_D_B",
+          "Sensor_D/Capteur_2",
+          "system_ila_0/probe6"
+        ]
+      },
+      "Sensor_D_Update_sensor": {
+        "ports": [
+          "Sensor_D/Update_sensor",
+          "system_ila_0/probe9"
+        ]
+      },
+      "Sensor_D_Distance": {
+        "ports": [
+          "Sensor_D/Distance",
+          "system_ila_0/probe1"
+        ]
+      }
+    }
+  }
+}

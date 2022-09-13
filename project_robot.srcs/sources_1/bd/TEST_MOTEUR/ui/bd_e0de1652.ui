@@ -1,0 +1,23 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-233,-185",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port Mot_PWM_D -pg 1 -lvl 3 -x 580 -y 110 -defaultsOSRD
+preplace port H_125 -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
+preplace portBus Vitesse -pg 1 -lvl 0 -x 0 -y 50 -defaultsOSRD
+preplace portBus Mot_Dir_D -pg 1 -lvl 3 -x 580 -y 50 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 2 -x 410 -y 50 -defaultsOSRD
+preplace inst Moteur_D -pg 1 -lvl 1 -x 140 -y 60 -defaultsOSRD
+preplace netloc Moteur_0_PWM_dir_out 1 1 1 NJ 50
+preplace netloc xlconstant_0_dout 1 0 1 NJ 50
+preplace netloc Moteur_0_PWM_out 1 1 2 260J 110 NJ
+preplace netloc H_125_1 1 0 1 NJ 70
+preplace netloc util_vector_logic_0_Res 1 2 1 NJ 50
+levelinfo -pg 1 0 140 410 580
+pagesize -pg 1 -db -bbox -sgen -140 -10 730 130
+"
+}
+

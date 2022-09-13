@@ -1,0 +1,46 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.892727",
+   "Default View_TopLeft":"-145,0",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port Mot_PWM_D -pg 1 -lvl 4 -x 890 -y 390 -defaultsOSRD
+preplace port H_125 -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
+preplace port Mot_PWM_G -pg 1 -lvl 4 -x 890 -y 430 -defaultsOSRD
+preplace port Cod_D_A -pg 1 -lvl 0 -x 0 -y 90 -defaultsOSRD
+preplace port Cod_D_B -pg 1 -lvl 0 -x 0 -y 110 -defaultsOSRD
+preplace portBus Mot_Dir_D -pg 1 -lvl 4 -x 890 -y 370 -defaultsOSRD
+preplace portBus Mot_Dir_G -pg 1 -lvl 4 -x 890 -y 410 -defaultsOSRD
+preplace portBus Cod_G_A -pg 1 -lvl 0 -x 0 -y 230 -defaultsOSRD
+preplace portBus Cod_G_B -pg 1 -lvl 0 -x 0 -y 470 -defaultsOSRD
+preplace inst B_Moteur -pg 1 -lvl 3 -x 740 -y 400 -defaultsOSRD
+preplace inst Sensor_G -pg 1 -lvl 2 -x 400 -y 450 -defaultsOSRD
+preplace inst Sensor_D -pg 1 -lvl 2 -x 400 -y 90 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 1 -x 130 -y 360 -defaultsOSRD -resize 166 88
+preplace inst util_vector_logic_1 -pg 1 -lvl 1 -x 130 -y 470 -defaultsOSRD -resize 174 88
+preplace inst system_ila_0 -pg 1 -lvl 3 -x 740 -y 170 -defaultsOSRD
+preplace netloc Moteur_0_PWM_out 1 3 1 NJ 390
+preplace netloc Moteur_0_PWM_dir_out 1 3 1 NJ 370
+preplace netloc H_125_1 1 0 3 NJ 70 250 180 590
+preplace netloc Moteur_1_PWM_dir_out 1 3 1 NJ 410
+preplace netloc Moteur_1_PWM_out 1 3 1 NJ 430
+preplace netloc Sensor_D_Vitesse 1 2 1 570 60n
+preplace netloc Sensor_G_Vitesse 1 2 1 N 420
+preplace netloc util_vector_logic_0_Res 1 1 1 240J 360n
+preplace netloc util_vector_logic_1_Res 1 1 1 NJ 470
+preplace netloc Op1_0_1 1 0 3 20 230 NJ 230 NJ
+preplace netloc Capteur_1_0_1 1 0 3 NJ 90 260 190 NJ
+preplace netloc Op1_1_1 1 0 3 20 540 NJ 540 610J
+preplace netloc Sensor_G_Distance 1 2 1 540 90n
+preplace netloc Sensor_G_Update_sensor 1 2 1 580 130n
+preplace netloc Sensor_D_Flag_motor 1 2 1 550 120n
+preplace netloc Sensor_G_Flag_motor 1 2 1 600 170n
+preplace netloc Cod_D_B_1 1 0 3 NJ 110 240 210 NJ
+preplace netloc Sensor_D_Update_sensor 1 2 1 560 100n
+preplace netloc Sensor_D_Distance 1 2 1 610 80n
+levelinfo -pg 1 0 130 400 740 890
+pagesize -pg 1 -db -bbox -sgen -140 0 1040 550
+"
+}
+
